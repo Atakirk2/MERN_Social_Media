@@ -17,6 +17,7 @@ import {verifyToken} from "./middleware/auth.js"
 import User from "./models/User.js"
 import Post from "./models/Post.js"
 import {users, posts} from "./data/index.js"
+import { error } from "console"
 
 /* Configuratinos */
 const __filename = fileURLToPath(import.meta.url)
@@ -51,6 +52,11 @@ app.use("/auth", authRoutes)
 app.use("/users", userRoutes)
 app.use("/posts", postRoutes)
 
+app.use((error,req,res,next)=>{
+  const message = "This is the unexpected field ->" + error.field
+  console.log(message)
+  return res.status(500).send(message)
+})
 
 /* Mongoose Setup */
 const PORT = process.env.PORT || 6001

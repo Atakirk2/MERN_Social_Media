@@ -117,6 +117,7 @@ const Navbar = () => {
       ) : (
         <IconButton
           onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
+          sx={{color:dark}}
         >
           <Menu />
         </IconButton>
@@ -133,13 +134,14 @@ const Navbar = () => {
           maxWidth="500px"
           minWidth="300px"
           backgroundColor={background}
+          sx={{color:dark}}
         >
           {/* CLOSE ICON */}
-          <Box display="flex" justifyContent="flex-end" p="1rem">
+          <Box display="flex" justifyContent="flex-end" p="1rem" sx={{color:dark}}>
             <IconButton
               onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
             >
-              <Close />
+              <Close sx={{color:dark}} />
             </IconButton>
           </Box>
 
@@ -153,7 +155,7 @@ const Navbar = () => {
           >
             <IconButton
               onClick={() => dispatch(setMode())}
-              sx={{ fontSize: "25px" }}
+              sx={{ fontSize: "25px", color:dark }}
             >
               {mode === "dark" ? (
                 <DarkMode sx={{ fontSize: "25px" }} />
@@ -161,13 +163,14 @@ const Navbar = () => {
                 <LightMode sx={{ color: dark, fontSize: "25px" }} />
               )}
             </IconButton>
-            <Message sx={{ fontSize: "25px" }} />
-            <Notifications sx={{ fontSize: "25px" }} />
-            <Help sx={{ fontSize: "25px" }} />
+            <Message sx={{ fontSize: "25px", color:dark }} />
+            <Notifications sx={{ fontSize: "25px", color:dark }} />
+            <Help sx={{ fontSize: "25px", color:dark }} />
             <FormControl variant="standard" value={fullName}>
               <Select
                 value={fullName}
                 sx={{
+                  color:dark,
                   backgroundColor: neutralLight,
                   width: "150px",
                   borderRadius: "0.25rem",
