@@ -89,6 +89,7 @@ const Form = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
+
     });
     const loggedIn = await loggedInResponse.json();
     onSubmitProps.resetForm();
@@ -100,11 +101,12 @@ const Form = () => {
         })
       );
       navigate("/home");
+      console.log(loggedIn.token)
     }
   };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
-    console.log("Handle form submit values:"+ values)
+    console.log(values.email + values.password)
     if (isLogin) await login(values, onSubmitProps);
     if (isRegister) await register(values, onSubmitProps);
   };

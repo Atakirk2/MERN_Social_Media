@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken"
 
 export const verifyToken = (req, res, next) => {
   try {
-    let token = req.header("Authorization ")
+    let token = req.header("Authorization")
     if (!token)
       return res.status(401).json({ msg: "No token, authorization denied" })
     if (token.startsWith("Bearer ")) {
